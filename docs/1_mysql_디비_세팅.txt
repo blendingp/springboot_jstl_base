@@ -1,0 +1,30 @@
+[ mysql 디비 세팅 ]
+ 
+- mysql 은 8.0.18 버전으로 테스트 하였습니다.
+
+아래는 데이터베이스를 만드는 예시이며,
+사용하시는 툴에 맞게 알맞게 생성하시면 됩니다.
+
+
+[ 사용 디비 및 테이블 ]
+
+데이터베이스명 : board
+데이터베이스 Character Set : utf8
+데이터베이스 Collation : utf8_unicode_ci
+
+
+[ 터미널에서 실행하는 예제 ]
+
+1. mysql 접속
+> mysql -u root -p
+
+2. board 데이터베이스 생성
+> CREATE DATABASE board CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+3. 데이터 베이스 사용자 및 권한 추가 
+> CREATE USER 'board_user'@'localhost' IDENTIFIED BY 'board_pass';
+> GRANT ALL PRIVILEGES ON board.* TO 'board_user'@'localhost';
+( board_user 라는 사용자의 비밀번호는  board_pass 이며, board 데이터베이스의 모든 권한을 넘겨줌. )
+
+4. 테이블 생성
+schema.sql 내의 sql 을 모두 실행

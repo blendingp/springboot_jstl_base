@@ -1,0 +1,9 @@
+.error {
+    color: red;
+}
+.chat {
+    height: 500px;
+    border: 1px solid gray;
+    overflow-y: scroll;
+    padding: 7px;
+}

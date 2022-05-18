@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+    <insert id="insert" parameterType="Post">
+        insert into board ( title, content )
+        values ( #{title}, #{content} )
+    </insert>
+    <update id="update" parameterType="Post">
+        update board set title = #{title}, content = #{content} where id = #{id}
+    </update>
+    <delete id="delete" parameterType="long">
+        delete from board where id = #{id}
+    </delete>
+    <select id="totalCount" resultType="int">
+        select count(id) from board
+    </select>
+    <select id="posts" parameterType="map" resultType="Post">
+        select
+            id,
+            title,
+            content,
+            created_at
+        from board
+        order by created_at desc limit #{offset}, #{pageSize}
+    </select>
+    <select id="post" parameterType="long" resultType="Post">
+        select * from board where id = #{id}
+    </select>
+</mapper>
