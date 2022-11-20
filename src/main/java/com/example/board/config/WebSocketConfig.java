@@ -11,9 +11,9 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 @Configuration // 설정 클래스 선언
 @EnableWebSocket // 웹소켓 설정 활성화
 public class WebSocketConfig implements WebSocketConfigurer {
-    private final ChatWebSocketHandler webSocketHandler;
+    private final WebSocketHandler webSocketHandler;
 
-    public WebSocketConfig(ChatWebSocketHandler webSocketHandler) {
+    public WebSocketConfig(WebSocketHandler webSocketHandler) {
         this.webSocketHandler = webSocketHandler;
     }
 
