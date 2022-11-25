@@ -15,14 +15,26 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 import com.example.board.config.WebSocketHandler;
 
+import io.socket.client.IO;
+
+import java.net.URISyntaxException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 public class siseManager {
     String []coin={"btcusdt","ethusdt"}; //시세받을 종목 바이낸스 문자열 기준.
     public String url="wss://fstream.binance.com/stream?streams=";//시세 받을 서버 주소문자열,바이낸스
     public WebSocketSession webSocketSession=null;
 
-    public siseManager(){
+
+            
+    public siseManager() {
         websocketConnect();
+        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        //new liveratesise();
+
     }
 
     WebSocketClient webSocketClient = null;
